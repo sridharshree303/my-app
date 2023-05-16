@@ -32,9 +32,6 @@ jobs:
       
     - name: Test
       run: npm run test:ci
-      
-    - name: Build
-      run: npm run build:ci
     
   windows-build:
         runs-on: ubuntu-latest
@@ -55,7 +52,4 @@ jobs:
               
             - name: Test
               run: npm run test:ci
-
-            - name: Build
-              run: npm run build:ci
 
