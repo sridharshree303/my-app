@@ -12,32 +12,8 @@ on:
           - master
 
 jobs:
-  ubuntu-build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Test
-      run: npm run test:ci
-      
-    - name: Build
-      run: npm run build:ci
-    
   windows-build:
-        runs-on: ubuntu-latest
+        runs-on: windows-latest
 
         strategy:
             matrix:
@@ -51,7 +27,7 @@ jobs:
               with:
                 node-version: ${{ matrix.node-version }}
             - name: Install dependencies
-              run: npm ci
+              run: npm install
               
             - name: Test
               run: npm run test:ci
